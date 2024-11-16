@@ -24,10 +24,18 @@ function search(e){
         }
     })
     .then((res) => {return res.json()})
-    .then((data) => console.log(data))
+    .then((data) => {
+        Array.from(data.results).forEach((image) => {
+            addImageToUI(image.urls.small);
+        })
+    })
     .catch((err) => console.log(err))
     
 
 
     e.preventDefault();
+}
+
+function addImageToUI(url) {
+    
 }
