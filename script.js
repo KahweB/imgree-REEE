@@ -11,8 +11,13 @@ runEventListeners();
 
 function runEventListeners(){
     form.addEventListener("submit", search);
+    clearButton.addEventListener("click", clear);
 }
+function clear() {
+    searchInput.value = "";
+    Array.from(imagelistWrapper.children).forEach((e) => {e.remove()});
 
+}
 function search(e){
 
     const value = searchInput.value.trim();
@@ -37,6 +42,11 @@ function search(e){
 }
 
 function addImageToUI(url) {
+
+    // <div class="card"">
+    //      <img src="">
+    // </div>
+
     const div = document.createElement("div");
     div.className = "card";
     const img = document.createElement("img");
