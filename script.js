@@ -37,5 +37,12 @@ function search(e){
 }
 
 function addImageToUI(url) {
-    
+    const div = document.createElement("div");
+    div.className = "card";
+    const img = document.createElement("img");
+    img.setAttribute("src",url);
+    img.height = "400";
+    img.width = "400";
+    div.appendChild(img);
+    imagelistWrapper.appendChild(div);
 }
