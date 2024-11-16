@@ -10,16 +10,14 @@ runEventListeners();
 
 
 function runEventListeners(){
-    form.addEventListener("submit", search);
+    searchButton.addEventListener("click", search);
     clearButton.addEventListener("click", clear);
 }
-function clear() {
-    searchInput.value = "";
+function clear(e) {
     Array.from(imagelistWrapper.children).forEach((e) => {e.remove()});
-
 }
 function search(e){
-
+    clear()
     const value = searchInput.value.trim();
 
     fetch(`https://api.unsplash.com/search/photos?query=${value}`,{
@@ -35,9 +33,6 @@ function search(e){
         })
     })
     .catch((err) => console.log(err))
-    
-
-
     e.preventDefault();
 }
 
